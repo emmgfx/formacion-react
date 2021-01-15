@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import GifService from "../../shared/gif-service";
+import SearchContext from "../../context/search";
 
 const Search = props => {
+
+  const { history, setHistory } = useContext(SearchContext);
 
   const [term, setTerm] = useState("");
   const [searching, setSearching] = useState(false);
@@ -26,6 +29,8 @@ const Search = props => {
       setSearching(false);
       setGifs(result);
     });
+
+    setHistory([term, ...history])
   }
 
   return(
