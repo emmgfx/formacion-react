@@ -14,6 +14,7 @@ import Random from "./pages/Random";
 import Trending from "./pages/Trending";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import { SearchProvider } from "./context/search";
 
@@ -28,7 +29,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/search" component={Search} />
             <Route exact path="/random" component={Random} />
-            <Route exact path="/trending" component={Trending} />
+            <ProtectedRoute exact path="/trending" component={Trending} />
             <Route exact path="/login" component={Login} />
             <Route component={NotFound} status={404} />
           </Switch>
